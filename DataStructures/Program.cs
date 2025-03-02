@@ -17,8 +17,8 @@ namespace DotNetDataStructuresExamples
 				Console.Clear();
 				Console.WriteLine("=== .NET Veri Yapıları Örnekleri ===");
 				Console.WriteLine("1. List<T>");
-				Console.WriteLine("2. Dictionary<TKey, TValue>");
 				Console.WriteLine("3. Array");
+				Console.WriteLine("2. Dictionary<TKey, TValue>");
 				Console.WriteLine("4. HashSet<T>");
 				Console.WriteLine("5. Queue<T>");
 				Console.WriteLine("6. Stack<T>");
@@ -39,20 +39,23 @@ namespace DotNetDataStructuresExamples
 				Console.WriteLine("0. Çıkış");
 				Console.Write("\nSeçiminiz: ");
 
+
+
+
 				if (int.TryParse(Console.ReadLine(), out int choice))
 				{
 					Console.Clear();
 					switch (choice)
 					{
-						//case 0:
-						//	exit = true;
-						//	break;
-						//case 1:
-						//	ListExample();
-						//	break;
-						case 2:
-							DictionaryExample();
+						case 0:
+							exit = true;
 							break;
+						case 1:
+							ListExample();
+							break;
+						//case 2:
+						//	DictionaryExample();
+						//	break;
 							//case 3:
 							//	ArrayExample();
 							//	break;
@@ -121,7 +124,7 @@ namespace DotNetDataStructuresExamples
 			}
 		}
 
-		// 1. List<T>
+		#region 1.List<T>
 		static void ListExample()
 		{
 			Console.WriteLine("=== List<T> Örneği ===");
@@ -139,7 +142,12 @@ namespace DotNetDataStructuresExamples
 
 			// AddRange ile birden fazla eleman ekleme
 			Console.WriteLine("\n2. Çoklu Eleman Ekleme (AddRange):");
-			sehirler.AddRange(new[] { "Bursa", "Antalya", "Adana" });
+			List<string> addRangeSehirler = new List<string>();
+			addRangeSehirler.Add("Bursa");
+			addRangeSehirler.Add("Antalya");
+			addRangeSehirler.Add("Adana");
+			sehirler.AddRange(addRangeSehirler);
+			//sehirler.AddRange(new[] { "Bursa", "Antalya", "Adana" });
 			sehirler.ForEach(x => Console.WriteLine(x));
 
 			// Insert ile araya eleman ekleme
@@ -206,8 +214,9 @@ namespace DotNetDataStructuresExamples
 
 
 		}
+		#endregion
 
-		// 2. Dictionary<TKey, TValue>
+		#region 2.Dictionary<TKey, TValue>
 		static void DictionaryExample()
 		{
 			Console.WriteLine("=== Dictionary<TKey, TValue> Örneği ===");
@@ -314,9 +323,10 @@ namespace DotNetDataStructuresExamples
 			//	Console.WriteLine($"- {entry.Key.Ad} ({entry.Key.Yas}): {entry.Value}");
 			//}
 		}
+		#endregion
 
-
-		//// 3. Array
+		#region 3.ArrayExample
+		// 3. Array
 		//static void ArrayExample()
 		//{
 		//	Console.WriteLine("=== Array Örneği ===");
@@ -548,7 +558,7 @@ namespace DotNetDataStructuresExamples
 		//	sw.Stop();
 		//	Console.WriteLine($"HashSet.Contains için geçen süre: {sw.ElapsedMilliseconds} ms");
 		//}
-
+		#endregion
 
 	}
 }
